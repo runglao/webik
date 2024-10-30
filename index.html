@@ -93,24 +93,16 @@
     let web3;
 let userAccount;
 
-// Подключение MetaMask и инициализация Web3
 async function connectMetaMask() {
-    if (typeof window.ethereum !== 'undefined') {
+    if (window.ethereum || Web3.givenProvider) {
         try {
-            // Запрашиваем доступ к аккаунтам MetaMask
-            await window.ethereum.request({ method: "eth_requestAccounts" });
-
             // Инициализируем Web3
-            web3 = new Web3(window.ethereum);
+            web3 = new Web3(window.ethereum || Web3.givenProvider);
 
-            // Получаем аккаунт пользователя
-            const accounts = await web3.eth.getAccounts();
+            // Запрашиваем аккаунты
+            await window.ethereum.request({ method: "eth_requestAccounts" });
             
-            if (accounts.length === 0) {
-                alert("Не удалось получить аккаунты. Проверьте настройки MetaMask.");
-                return;
-            }
-
+            const accounts = await web3.eth.getAccounts();
             userAccount = accounts[0];
             document.getElementById("walletAddress").innerText = `Адрес кошелька: ${userAccount}`;
 
@@ -119,21 +111,13 @@ async function connectMetaMask() {
             const balanceInEth = web3.utils.fromWei(balance, "ether");
             document.getElementById("walletBalance").innerText = `Баланс: ${balanceInEth} ETH`;
 
-            alert("MetaMask успешно подключен!");
+            alert("MetaMask подключен!");
         } catch (error) {
-            // Обрабатываем возможные ошибки
-            console.error("Ошибка при подключении MetaMask:", error);
-
-            if (error.code === 4001) {
-                alert("Отклонено пользователем. Пожалуйста, разрешите доступ.");
-            } else if (error.message.includes("eth_requestAccounts")) {
-                alert("Ошибка при запросе аккаунтов. Убедитесь, что MetaMask открыт.");
-            } else {
-                alert("Произошла ошибка при подключении MetaMask. Подробности в консоли.");
-            }
+            console.error("Ошибка:", error);
+            alert("Ошибка при подключении MetaMask. Проверьте консоль для деталей.");
         }
     } else {
-        alert("MetaMask не установлен. Пожалуйста, установите MetaMask.");
+        alert("MetaMask не найден. Убедитесь, что он установлен.");
     }
 }
 
