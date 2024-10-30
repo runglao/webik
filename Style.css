@@ -1,0 +1,180 @@
+body{
+  margin: 0;
+  padding: 0;
+  /* width: 100%;
+  height: 25vh;
+  
+  background-color: rgb(230, 226, 12);
+  display: flex;
+  justify-content: space-between;
+   */
+}
+
+
+.container{
+  width: 100%;
+  height: 43vh;
+  
+  background: linear-gradient(#373B44,#4286f4);
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.starb {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  
+  position: relative;
+  animation: flay 2.5s ease-in-out infinite ;
+}
+
+
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+
+.stara {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  
+  position: relative;
+  transform: scaleX(-1);
+  animation: flayb 2.5s ease-in-out infinite ;
+
+}
+
+  
+
+
+@keyframes flay {
+  0%{
+    top: 0;
+  }
+  50%{
+    top: -30px; left: 0px; 
+  }
+  100%{
+    top: 0; left: 0;
+  }
+  
+}
+
+@keyframes flayb {
+  0%{
+    top: 0;
+  }
+  50%{
+    top: -30px; left: 0px; 
+  }
+  100%{
+    top: 0; left: 0;
+  }
+  
+  
+}
+
+
+
+
+
+.containerbox{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#aa4b6b, #6b6b83, #2C5364);
+}
+
+.namelogo{
+  width: 100%;
+  height: 20vh;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#0F2027, #203A43, #2C5364);
+  background-repeat: no-repeat;
+  
+  color: rgb(10, 209, 209);
+  font-family: fantasy;
+  font-size: 35px;
+}
+
+.blockscan{
+  display: flex;
+  align-items: center;
+  justify-content: space-aroun;
+  flex-wrap: wrap;
+  
+  
+}
+
+
+.buttonclick{
+  
+  width: 100%;
+  height: 70vh;
+  text-align: center;
+  padding: 10px;
+  
+  
+}
+
+.button{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 10px;
+  background: linear-gradient(#0F2027, #203A43, #2C5364);
+  transition: transform 0.5s ease;
+}
+
+.button:hover{
+  border: 5px solid rgb(7, 214, 24);
+  transform: scale(1.1);
+}
+
+button a{
+  text-decoration: none;
+  color: #f56a0d;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+footer{
+  background: linear-gradient(#373B44,#4286f4);;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+.footer p,a{
+  text-decoration: none;
+  color: #000000;
+}
+.x a{
+  border: solid 2px;
+  padding: 2px;
+  margin: 5px;
+   
+}
+
+.y a{
+  border: solid 2px;
+  padding: 2px;
+  margin: 5px;
+}
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  
+}
